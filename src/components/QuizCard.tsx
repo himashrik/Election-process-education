@@ -18,7 +18,7 @@ interface Props {
 }
 
 export function QuizCard({ phaseId, questions, phaseTitle }: Props) {
-  const { country, markQuizCompleted, completedQuizzes } = useAppContext();
+  const { country, markQuizCompleted, unmarkQuizCompleted, completedQuizzes } = useAppContext();
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -50,6 +50,16 @@ export function QuizCard({ phaseId, questions, phaseTitle }: Props) {
     }
   };
 
+  const handleReset = () => {
+    // Resetting the state locally
+    setCurrentQuestionIdx(0);
+    setSelectedOption(null);
+    setIsSubmitted(false);
+    
+    // Using Context to remove completion status
+    unmarkQuizCompleted(country, phaseId);
+  };
+
   if (isCompleted) {
     return (
       <Card className="bg-green-50 border-green-200 mt-6 shadow-sm">
@@ -61,7 +71,7 @@ export function QuizCard({ phaseId, questions, phaseTitle }: Props) {
               <p className="text-sm text-green-700">You have successfully completed the {phaseTitle} quiz.</p>
             </div>
           </div>
-          <Button variant="outline" onClick={() => markQuizCompleted(country, phaseId + "_reset")} className="hidden">Reset</Button>
+          <Button variant="outline" onClick={handleReset} className="text-green-700 border-green-300 hover:bg-green-100">Reset Quiz</Button>
         </CardContent>
       </Card>
     );

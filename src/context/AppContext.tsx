@@ -10,6 +10,7 @@ interface AppState {
   setLevel: (level: ExplainerLevel) => void;
   completedQuizzes: Record<string, boolean>; // key format: countryId-phaseId
   markQuizCompleted: (countryId: string, phaseId: string) => void;
+  unmarkQuizCompleted: (countryId: string, phaseId: string) => void;
   isCountryCompleted: (countryId: string, totalPhases: number) => boolean;
 }
 
@@ -40,13 +41,23 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     });
   };
 
+  const unmarkQuizCompleted = (countryId: string, phaseId: string) => {
+    const key = `${countryId}-${phaseId}`;
+    setCompletedQuizzes(prev => {
+      const updated = { ...prev };
+      delete updated[key];
+      localStorage.setItem('electionEd_quizzes', JSON.stringify(updated));
+      return updated;
+    });
+  };
+
   const isCountryCompleted = (countryId: string, totalPhases: number) => {
     const completedForCountry = Object.keys(completedQuizzes).filter(k => k.startsWith(`${countryId}-`));
     return completedForCountry.length >= totalPhases;
   };
 
   return (
-    <AppContext.Provider value={{ country, setCountry, level, setLevel, completedQuizzes, markQuizCompleted, isCountryCompleted }}>
+    <AppContext.Provider value={{ country, setCountry, level, setLevel, completedQuizzes, markQuizCompleted, unmarkQuizCompleted, isCountryCompleted }}>
       {children}
     </AppContext.Provider>
   );
