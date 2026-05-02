@@ -1,0 +1,245 @@
+{
+  "id": "us",
+  "name": "United States",
+  "description": "A federal constitutional republic where the President is elected indirectly through the Electoral College, and Congress is elected directly by the people.",
+  "eligibility": {
+    "ageRequired": 18,
+    "citizenshipRequired": true,
+    "residencyRequired": true,
+    "notes": "Must be registered to vote in your state. Registration deadlines vary by state."
+  },
+  "keyDates": [
+    {
+      "title": "Voter Registration Deadline",
+      "date": "Varies by state (Typically Oct)",
+      "description": "Last day to register to vote for the general election."
+    },
+    {
+      "title": "Early Voting Begins",
+      "date": "Varies by state (Usually Oct)",
+      "description": "Many states allow you to vote in person before Election Day."
+    },
+    {
+      "title": "Election Day",
+      "date": "First Tuesday after Nov 1",
+      "description": "The final day to cast your ballot in person."
+    }
+  ],
+  "phases": [
+    {
+      "id": "pre-election",
+      "title": "Pre-election Phase",
+      "description": "Getting ready for the election, including registering and choosing party nominees.",
+      "steps": [
+        {
+          "id": "registration",
+          "title": "Voter Registration",
+          "explanations": {
+            "simple": "Before you can vote, you need to sign up. It's like putting your name on the guest list for a party.",
+            "standard": "Eligible citizens must register with their state to be allowed to vote. Each state has different deadlines and rules.",
+            "expert": "Voter registration is governed at the state level, though federal laws like the NVRA (Motor Voter Act) mandate minimum access standards."
+          },
+          "examples": [
+            "Registering online through your state's election portal.",
+            "Registering when you get your driver's license."
+          ],
+          "glossary": [
+            { "term": "NVRA", "definition": "National Voter Registration Act, a law making it easier for Americans to register to vote." }
+          ]
+        },
+        {
+          "id": "primaries",
+          "title": "Primaries and Caucuses",
+          "explanations": {
+            "simple": "This is how political parties pick their main player for the big game. People vote for who they want their party to send.",
+            "standard": "Before the general election, states hold primary elections or caucuses to determine which candidate will represent each political party.",
+            "expert": "Primaries can be open, closed, or semi-closed. Delegates are awarded to candidates based on primary results, which then officially nominate the candidate at the national convention."
+          },
+          "examples": [
+            "The Iowa Caucuses",
+            "New Hampshire Primary"
+          ],
+          "glossary": [
+            { "term": "Caucus", "definition": "A local meeting where registered members of a political party gather to vote for their preferred candidate." },
+            { "term": "Primary", "definition": "A state-level election where party members vote to choose a candidate affiliated with their political party." }
+          ]
+        }
+      ],
+      "quiz": {
+        "simple": [
+          {
+            "question": "What do you need to do before you can vote?",
+            "options": ["Pay a fee", "Register to vote", "Pass a test", "Nothing"],
+            "correctAnswer": 1,
+            "explanation": "You must register (sign up) with your state before you are allowed to vote."
+          }
+        ],
+        "standard": [
+          {
+            "question": "What is the main purpose of a primary election?",
+            "options": ["To elect the President", "To choose party nominees", "To register voters", "To pass new laws"],
+            "correctAnswer": 1,
+            "explanation": "Primaries are used to select which candidate will represent a political party in the general election."
+          }
+        ],
+        "expert": [
+          {
+            "question": "What is the primary function of the National Voter Registration Act (NVRA) of 1993?",
+            "options": ["To mandate federal voter ID laws", "To require states to offer voter registration at DMVs", "To abolish the Electoral College", "To limit early voting days"],
+            "correctAnswer": 1,
+            "explanation": "The NVRA, or Motor Voter Act, requires states to offer voter registration opportunities at State motor vehicle agencies."
+          }
+        ]
+      }
+    },
+    {
+      "id": "campaign",
+      "title": "Campaign Period",
+      "description": "Candidates travel, debate, and try to convince people to vote for them.",
+      "steps": [
+        {
+          "id": "debates",
+          "title": "Debates and Rallies",
+          "explanations": {
+            "simple": "Candidates answer questions on TV and give big speeches to crowds to show why they should win.",
+            "standard": "Candidates hold rallies to energize supporters and participate in televised debates to discuss policy and contrast themselves with opponents.",
+            "expert": "The Commission on Presidential Debates historically organized debates, though candidates increasingly negotiate terms directly. Rallies are key for GOTV (Get Out The Vote) efforts."
+          },
+          "examples": [
+            "Presidential debates watched by millions of viewers."
+          ],
+          "glossary": [
+            { "term": "GOTV", "definition": "Get Out The Vote: Campaign strategies to ensure that supporters actually cast their ballots." }
+          ]
+        }
+      ],
+      "quiz": {
+        "simple": [
+          {
+            "question": "Why do politicians hold debates on TV?",
+            "options": ["To entertain people", "To argue about sports", "To answer questions and show why they should win", "To raise money directly"],
+            "correctAnswer": 2,
+            "explanation": "Debates let voters hear candidates answer important questions side-by-side."
+          }
+        ],
+        "standard": [
+          {
+            "question": "What does GOTV stand for?",
+            "options": ["Government Of The Voters", "Go On To Victory", "Get Out The Vote", "Gather Our Teams Voluntarily"],
+            "correctAnswer": 2,
+            "explanation": "GOTV stands for 'Get Out The Vote', which focuses on ensuring supporters actually go and vote."
+          }
+        ],
+        "expert": [
+          {
+            "question": "Historically, which entity has organized the general election presidential debates?",
+            "options": ["The Federal Election Commission", "The Commission on Presidential Debates", "The Supreme Court", "The League of Women Voters exclusively"],
+            "correctAnswer": 1,
+            "explanation": "Since 1988, the bipartisan Commission on Presidential Debates (CPD) has sponsored the general election debates."
+          }
+        ]
+      }
+    },
+    {
+      "id": "voting",
+      "title": "Voting Day",
+      "description": "The time when citizens cast their ballots.",
+      "steps": [
+        {
+          "id": "polling",
+          "title": "Casting the Ballot",
+          "explanations": {
+            "simple": "You go to a voting place or mail your ballot to make your choice secret.",
+            "standard": "Voters go to their assigned polling place to cast a secret ballot. Many states also allow mail-in or early voting.",
+            "expert": "Elections use various voting methods including hand-marked paper ballots and Direct Recording Electronic (DRE) machines, ensuring the secret ballot principle."
+          },
+          "glossary": [
+            { "term": "Secret Ballot", "definition": "A voting method in which a voter's choices in an election are anonymous." }
+          ]
+        }
+      ],
+      "quiz": {
+        "simple": [
+          {
+            "question": "Is your vote a secret?",
+            "options": ["Yes, it is private", "No, everyone can see it", "Only your family can see it", "The government publishes it"],
+            "correctAnswer": 0,
+            "explanation": "The US uses a 'secret ballot', meaning no one knows who you voted for."
+          }
+        ],
+        "standard": [
+          {
+            "question": "Which of these is NOT a common way to vote in the US?",
+            "options": ["In-person on Election Day", "By mail", "Early in-person voting", "Via text message"],
+            "correctAnswer": 3,
+            "explanation": "Voting via text message is not allowed due to security and verification concerns."
+          }
+        ],
+        "expert": [
+          {
+            "question": "What is a DRE voting machine?",
+            "options": ["District Registration Equipment", "Direct Recording Electronic machine", "Digital Results Encoder", "Delegated Representative Election machine"],
+            "correctAnswer": 1,
+            "explanation": "DRE (Direct Recording Electronic) machines record votes directly into the computer's memory."
+          }
+        ]
+      }
+    },
+    {
+      "id": "post-election",
+      "title": "Post-election Phase",
+      "description": "Counting votes and making it official.",
+      "steps": [
+        {
+          "id": "electoral-college",
+          "title": "The Electoral College",
+          "explanations": {
+            "simple": "The US President isn't picked by who gets the most votes overall, but by winning states. Each state has a certain number of points.",
+            "standard": "The President is elected by the Electoral College, not the popular vote. States have electors based on their population, and 270 electoral votes are needed to win.",
+            "expert": "Most states use a winner-take-all system for their electoral votes. If no candidate reaches 270, the House of Representatives chooses the President in a contingent election."
+          },
+          "glossary": [
+            { "term": "Electoral College", "definition": "A body of electors established by the US Constitution, which forms every four years for the sole purpose of electing the president and vice president." },
+            { "term": "Popular Vote", "definition": "The total number or percentage of votes cast for a candidate by voters in the 50 states and Washington, D.C." }
+          ]
+        }
+      ],
+      "quiz": {
+        "simple": [
+          {
+            "question": "Does the person with the most total votes across the whole country always become President?",
+            "options": ["Yes, always", "No, they must win the Electoral College points", "Only if Congress agrees", "Only if they get 100% of votes"],
+            "correctAnswer": 1,
+            "explanation": "A candidate can get more total votes but still lose if they don't win enough state 'points' in the Electoral College."
+          }
+        ],
+        "standard": [
+          {
+            "question": "How many Electoral College votes are needed to win the US Presidency?",
+            "options": ["50", "100", "270", "538"],
+            "correctAnswer": 2,
+            "explanation": "A candidate needs a majority of the 538 electoral votes to win, which is 270."
+          }
+        ],
+        "expert": [
+          {
+            "question": "What happens if no presidential candidate secures a majority (270 votes) in the Electoral College?",
+            "options": ["A national runoff election is held", "The Supreme Court decides", "The current President stays in power", "The House of Representatives chooses the President"],
+            "correctAnswer": 3,
+            "explanation": "In a contingent election, the House of Representatives elects the President, with each state delegation having one vote."
+          }
+        ]
+      }
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is gerrymandering?",
+      "answer": "Gerrymandering is the practice of drawing the boundaries of electoral districts in a way that gives one political party an unfair advantage over its rivals."
+    },
+    {
+      "question": "What if there's a tie in the Electoral College?",
+      "answer": "If there is a tie (e.g., 269-269), the election goes to the House of Representatives, where each state delegation gets one vote."
+    }
+  ]
+}

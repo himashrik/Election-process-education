@@ -1,0 +1,232 @@
+{
+  "id": "india",
+  "name": "India",
+  "description": "The world's largest democracy. Uses a parliamentary system where citizens elect Members of Parliament (MPs), and the majority party forms the government.",
+  "eligibility": {
+    "ageRequired": 18,
+    "citizenshipRequired": true,
+    "residencyRequired": true,
+    "notes": "Must be enrolled in the electoral roll and have a Voter ID card (EPIC)."
+  },
+  "keyDates": [
+    {
+      "title": "Election Announcement",
+      "date": "Varies (Every 5 years)",
+      "description": "The Election Commission announces dates, triggering the Model Code of Conduct."
+    },
+    {
+      "title": "Polling Phases",
+      "date": "Spread over weeks",
+      "description": "Elections happen in multiple phases for security."
+    },
+    {
+      "title": "Counting Day",
+      "date": "Varies",
+      "description": "All votes are counted on a single day."
+    }
+  ],
+  "phases": [
+    {
+      "id": "pre-election",
+      "title": "Pre-election Phase",
+      "description": "Preparing for the massive democratic exercise.",
+      "steps": [
+        {
+          "id": "voter-id",
+          "title": "Getting a Voter ID",
+          "explanations": {
+            "simple": "You need to get a special ID card to prove you are allowed to vote.",
+            "standard": "Citizens must enroll in the voter list to get an Electors Photo Identity Card (EPIC) from the Election Commission.",
+            "expert": "Registration is continuously updated but stops temporarily after nominations are filed. The ECI uses BLOs (Booth Level Officers) to maintain accurate rolls."
+          },
+          "glossary": [
+            { "term": "EPIC", "definition": "Electors Photo Identity Card, the official voter ID in India." },
+            { "term": "ECI", "definition": "Election Commission of India, the autonomous body that conducts elections." }
+          ]
+        },
+        {
+          "id": "mcc",
+          "title": "Model Code of Conduct",
+          "explanations": {
+            "simple": "A set of rules politicians must follow so the election is fair, like not bribing voters.",
+            "standard": "Once elections are announced, the Model Code of Conduct comes into effect. It prevents the ruling party from using government resources for campaigning.",
+            "expert": "The MCC is not legally binding but the ECI can take strict actions, including countermanding elections, for violations under its Article 324 powers."
+          },
+          "glossary": [
+            { "term": "MCC", "definition": "Model Code of Conduct, guidelines issued by the ECI for conduct of political parties and candidates." }
+          ]
+        }
+      ],
+      "quiz": {
+        "simple": [
+          {
+            "question": "Who is in charge of running elections in India?",
+            "options": ["The Police", "The Election Group", "The Election Commission of India", "The President"],
+            "correctAnswer": 2,
+            "explanation": "The Election Commission of India (ECI) is the special group in charge of making sure elections are fair."
+          }
+        ],
+        "standard": [
+          {
+            "question": "Which body conducts national elections in India?",
+            "options": ["Supreme Court", "Parliament", "Election Commission of India", "President"],
+            "correctAnswer": 2,
+            "explanation": "The Election Commission of India (ECI) is an independent constitutional authority responsible for administering election processes."
+          }
+        ],
+        "expert": [
+          {
+            "question": "Under which Article of the Constitution does the ECI derive its power to supervise elections?",
+            "options": ["Article 14", "Article 324", "Article 370", "Article 21"],
+            "correctAnswer": 1,
+            "explanation": "Article 324 vests the superintendence, direction, and control of elections in the Election Commission."
+          }
+        ]
+      }
+    },
+    {
+      "id": "campaign",
+      "title": "Campaign Period",
+      "description": "Massive rallies, roadshows, and manifestos.",
+      "steps": [
+        {
+          "id": "rallies",
+          "title": "Rallies and Manifestos",
+          "explanations": {
+            "simple": "Parties release a promise book telling people what they will do if they win, and hold huge gatherings.",
+            "standard": "Political parties release their election manifestos outlining their promises. Leaders travel across the country holding massive public rallies.",
+            "expert": "Campaign expenditure is strictly capped for individual candidates, though there is no limit on what the political party itself can spend."
+          }
+        }
+      ],
+      "quiz": {
+        "simple": [
+          {
+            "question": "When do politicians have to stop campaigning before voting day?",
+            "options": ["They never stop", "2 days before", "1 hour before", "1 week before"],
+            "correctAnswer": 1,
+            "explanation": "Campaigning must stop 2 days (48 hours) before polling to give people a quiet time to decide."
+          }
+        ],
+        "standard": [
+          {
+            "question": "When does campaigning usually stop before polling day?",
+            "options": ["On polling day", "24 hours before", "48 hours before", "1 week before"],
+            "correctAnswer": 2,
+            "explanation": "Campaigning must stop 48 hours before the end of polling to give voters a 'silent period' to reflect."
+          }
+        ],
+        "expert": [
+          {
+            "question": "Is there a legal cap on how much a political party can spend during a campaign?",
+            "options": ["Yes, strict caps exist for both parties and candidates", "No, there are caps for candidates but not for parties", "No caps exist at all", "Caps only exist for state elections"],
+            "correctAnswer": 1,
+            "explanation": "While individual candidates have a strict expenditure limit, there is currently no limit on what the political party itself can spend."
+          }
+        ]
+      }
+    },
+    {
+      "id": "voting",
+      "title": "Voting Day",
+      "description": "Casting votes using EVMs.",
+      "steps": [
+        {
+          "id": "evm",
+          "title": "Voting with EVMs",
+          "explanations": {
+            "simple": "Instead of paper, people press a button on a machine next to their favorite party's symbol.",
+            "standard": "Voters use Electronic Voting Machines (EVMs). They press a button against the candidate's name and symbol. A slip is printed to confirm the vote.",
+            "expert": "EVMs are standalone, non-networked machines. The VVPAT (Voter Verified Paper Audit Trail) system allows voters to verify their vote, adding a layer of auditability."
+          },
+          "glossary": [
+            { "term": "EVM", "definition": "Electronic Voting Machine, used universally in Indian general and state elections." },
+            { "term": "VVPAT", "definition": "Voter Verified Paper Audit Trail, a printer attached to the EVM that shows the vote cast." }
+          ]
+        }
+      ],
+      "quiz": {
+        "simple": [
+          {
+            "question": "How do most people cast their vote in India today?",
+            "options": ["By raising their hand", "Using paper ballots", "Pressing a button on an EVM", "Sending an SMS"],
+            "correctAnswer": 2,
+            "explanation": "Most voting in India is done by pressing a button on an Electronic Voting Machine (EVM)."
+          }
+        ],
+        "standard": [
+          {
+            "question": "What does VVPAT do?",
+            "options": ["Counts the votes", "Prints a paper slip confirming the vote", "Identifies the voter", "Transmits votes online"],
+            "correctAnswer": 1,
+            "explanation": "VVPAT prints a paper slip that the voter can see through a glass for 7 seconds to verify their vote was recorded correctly."
+          }
+        ],
+        "expert": [
+          {
+            "question": "Are Indian EVMs connected to the internet?",
+            "options": ["Yes, for real-time counting", "Only via Bluetooth", "No, they are standalone machines", "Yes, through a secure government network"],
+            "correctAnswer": 2,
+            "explanation": "EVMs are standalone, non-networked machines designed to prevent remote hacking or tampering."
+          }
+        ]
+      }
+    },
+    {
+      "id": "post-election",
+      "title": "Post-election Phase",
+      "description": "Counting and forming the government.",
+      "steps": [
+        {
+          "id": "fptp",
+          "title": "First-Past-The-Post System",
+          "explanations": {
+            "simple": "The person with the most votes in an area wins. The party that wins the most areas gets to rule.",
+            "standard": "India uses the First-Past-The-Post (FPTP) system. The candidate with the most votes in a constituency wins. A party needs a majority in the Lok Sabha (272 seats) to form the government.",
+            "expert": "In FPTP, a candidate doesn't need an absolute majority (>50%), just more votes than anyone else. This can sometimes lead to a mismatch between vote share and seat share."
+          },
+          "glossary": [
+            { "term": "FPTP", "definition": "First-Past-The-Post, an electoral system where the candidate with the most votes wins." },
+            { "term": "Lok Sabha", "definition": "The lower house of India's bicameral Parliament." }
+          ]
+        }
+      ],
+      "quiz": {
+        "simple": [
+          {
+            "question": "What does a candidate need to win in their area?",
+            "options": ["More than 90% of votes", "Just more votes than the 2nd place person", "Exactly 50% of votes", "Approval from the President"],
+            "correctAnswer": 1,
+            "explanation": "In India's system, you just need to get more votes than anyone else running against you in that area to win."
+          }
+        ],
+        "standard": [
+          {
+            "question": "How many seats are needed for a simple majority in the Lok Sabha?",
+            "options": ["200", "272", "300", "543"],
+            "correctAnswer": 1,
+            "explanation": "The Lok Sabha has 543 elected seats, so a party or coalition needs at least 272 seats for a majority."
+          }
+        ],
+        "expert": [
+          {
+            "question": "A key characteristic of the FPTP system is:",
+            "options": ["It guarantees a two-party system", "It perfectly matches vote share to seat share", "A candidate can win without an absolute majority (>50%)", "It uses ranked-choice voting"],
+            "correctAnswer": 2,
+            "explanation": "In FPTP, the candidate with the most votes wins, even if that plurality is less than 50% of the total vote cast."
+          }
+        ]
+      }
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is NOTA?",
+      "answer": "NOTA stands for 'None of the Above'. It's an option on the EVM that allows a voter to reject all candidates. However, it doesn't invalidate the election even if it gets the most votes."
+    },
+    {
+      "question": "How are illiterate voters able to vote?",
+      "answer": "Every political party and candidate has a unique, standardized pictorial symbol (like a lotus, hand, or elephant) on the EVM, making it easy to identify them without reading."
+    }
+  ]
+}
