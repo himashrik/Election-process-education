@@ -1,6 +1,6 @@
 "use client";
 
-import { useChat } from '@ai-sdk/react';
+import { useChat, UIMessage } from '@ai-sdk/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -12,15 +12,29 @@ import ReactMarkdown from 'react-markdown';
 export function ElectionAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
-    initialMessages: [
+  const [input, setInput] = useState("");
+  const { messages, sendMessage, status } = useChat({
+    messages: [
       {
         id: '1',
         role: 'assistant',
-        content: 'Hi! I am the ElectionEd Assistant. I can explain the election process, voting steps, EVMs, eligibility, and more in simple terms. How can I help you understand elections today?',
-      },
+        parts: [{ type: 'text', text: 'Hi! I am the ElectionEd Assistant. I can explain the election process, voting steps, EVMs, eligibility, and more in simple terms. How can I help you understand elections today?' }],
+      } as UIMessage,
     ],
   });
+
+  const isLoading = status === 'submitted' || status === 'streaming';
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+    sendMessage({ text: input });
+    setInput("");
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -93,15 +107,17 @@ export function ElectionAssistant() {
                         {m.role === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
                       </div>
                       <div className={`py-2 px-3 rounded-2xl text-sm ${m.role === 'user' ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900 rounded-tr-sm' : 'bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800 rounded-tl-sm shadow-sm'}`}>
-                        <ReactMarkdown className="prose prose-sm dark:prose-invert max-w-none break-words
+                        <div className="prose prose-sm dark:prose-invert max-w-none break-words
                           prose-p:leading-relaxed prose-p:my-1
                           prose-ul:my-1 prose-ol:my-1
                           prose-li:my-0.5
                           prose-headings:text-base prose-headings:my-2 prose-headings:font-bold
                           prose-strong:font-semibold"
                         >
-                          {m.content}
-                        </ReactMarkdown>
+                          <ReactMarkdown>
+                            {m.parts?.filter(p => p.type === 'text').map(p => (p as any).text).join('\n')}
+                          </ReactMarkdown>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -126,7 +142,7 @@ export function ElectionAssistant() {
               <CardFooter className="p-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 rounded-b-xl">
                 <form onSubmit={handleSubmit} className="flex w-full gap-2 relative">
                   <input
-                    value={input || ""}
+                    value={input}
                     onChange={handleInputChange}
                     placeholder="Ask about elections..."
                     className="flex-1 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-500 rounded-xl"
@@ -134,7 +150,7 @@ export function ElectionAssistant() {
                   <Button 
                     type="submit" 
                     size="icon" 
-                    disabled={isLoading || !input?.trim()}
+                    disabled={isLoading || !input.trim()}
                     className="absolute right-1 top-1 h-8 w-8 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
                   >
                     {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
