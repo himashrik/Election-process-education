@@ -97,5 +97,24 @@ sequenceDiagram
     npm run dev
     ```
 
+## ✨ Key Features in Detail
+
+*   **⚡ Real-time AI Assistant**: Powered by Gemini 1.5 Pro, providing instant, context-aware answers to complex civic questions.
+*   **📱 Mobile-First Design**: Fully responsive UI that works flawlessly on phones, tablets, and desktops.
+*   **🌓 Dark Mode Support**: Sleek, modern interface that respects system preferences for eye comfort.
+*   **🎯 Progress Tracking**: Visual progress bars and milestone markers to keep users motivated.
+*   **🧪 Interactive Quizzes**: Instant feedback loops to reinforce learning through active recall.
+
+## 🗺️ Future Roadmap
+
+- [ ] **Multi-language Support**: Translating content into regional languages (e.g., Hindi, Spanish) for broader reach.
+- [ ] **Voice Interaction**: Integration with Web Speech API for hands-free learning.
+- [ ] **Offline Mode**: Using Service Workers to allow users to read election roadmaps without internet.
+- [ ] **Blockchain Verification**: Exploring decentralized storage for immutable election records.
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
 ---
-Built with ❤️ for the Election Ed Hackathon.
+Built with ❤️ for the **Hack2Skill - PromptWars** Hackathon.
