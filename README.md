@@ -14,7 +14,7 @@ ElectionEd tackles the "complexity barrier" of civic participation. We believe t
 *   **Personalization**: Adapting to the user's knowledge level and region.
 *   **Reinforcement**: Using active recall through quizzes and flashcards.
 
-## 💡 Core Features & Deep Analysis
+## 💡 Core Features 
 
 ### 1. 🎓 Multi-Level Explainer System (Simple, Standard, Expert)
 One of the most unique aspects of ElectionEd is its **Content Adaptation Engine**. Users can toggle between three proficiency levels:
