@@ -42,6 +42,12 @@ export async function POST(req: Request) {
       return new Response('Invalid messages format', { status: 400 });
     }
 
+    // Defensive check: Validate message length to prevent oversized payloads
+    const lastMessage = messages[messages.length - 1];
+    if (lastMessage?.content && lastMessage.content.length > 2000) {
+      return new Response('Message too long', { status: 400 });
+    }
+
     const contextualPrompt = `${systemPrompt}\n\nCURRENT CONTEXT:\n- Country: ${country?.toUpperCase() || 'India'}\n- Explainer Level: ${level || 'standard'}\n\nPlease tailor your response specifically to ${country?.toUpperCase() || 'India'} and ensure the complexity matches the ${level || 'standard'} level.`;
 
     const result = streamText({
