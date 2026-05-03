@@ -5,6 +5,7 @@ import { AppProvider } from "@/context/AppContext";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { ThemeProvider } from "@/components/theme-provider";
+import { FloatingBeads } from "@/components/FloatingBeads";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen bg-background text-foreground`}>
+      <body className={`${inter.className} min-h-screen bg-background text-foreground relative`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -29,6 +30,7 @@ export default function RootLayout({
         >
           <AppProvider>
             <TooltipProvider>
+              <FloatingBeads />
               {children}
             </TooltipProvider>
           </AppProvider>
