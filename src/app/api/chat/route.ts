@@ -35,15 +35,31 @@ Make responses interactive by:
 - Asking simple follow-ups like: "Do you want to know eligibility?" or "Shall I explain EVM?"`;
 
 export async function POST(req: Request) {
-  const { messages, country, level } = await req.json();
+  try {
+    const { messages, country, level } = await req.json();
 
-  const contextualPrompt = `${systemPrompt}\n\nCURRENT CONTEXT:\n- Country: ${country?.toUpperCase() || 'India'}\n- Explainer Level: ${level || 'standard'}\n\nPlease tailor your response specifically to ${country?.toUpperCase() || 'India'} and ensure the complexity matches the ${level || 'standard'} level.`;
+    if (!messages || !Array.isArray(messages)) {
+      return new Response('Invalid messages format', { status: 400 });
+    }
 
-  const result = streamText({
-    model: google('gemini-1.5-pro'),
-    system: contextualPrompt,
-    messages,
-  });
+    const contextualPrompt = `${systemPrompt}\n\nCURRENT CONTEXT:\n- Country: ${country?.toUpperCase() || 'India'}\n- Explainer Level: ${level || 'standard'}\n\nPlease tailor your response specifically to ${country?.toUpperCase() || 'India'} and ensure the complexity matches the ${level || 'standard'} level.`;
 
-  return result.toTextStreamResponse();
+    const result = streamText({
+      model: google('gemini-1.5-pro', {
+        safetySettings: [
+          { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+        ],
+      }),
+      system: contextualPrompt,
+      messages,
+    });
+
+    return result.toTextStreamResponse();
+  } catch (error) {
+    console.error('Gemini API Error:', error);
+    return new Response('Internal Server Error', { status: 500 });
+  }
 }

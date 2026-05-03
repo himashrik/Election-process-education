@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { checkUserEligibility } from "@/lib/eligibility";
 import { EligibilityRules } from "@/types/election";
 import { AlertCircle, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,13 +24,8 @@ export function EligibilityForm({ rules }: Props) {
   const checkEligibility = (e: React.FormEvent) => {
     e.preventDefault();
     const ageNum = parseInt(age);
-    if (isNaN(ageNum)) return;
-
-    if (
-      ageNum >= rules.ageRequired &&
-      (!rules.citizenshipRequired || isCitizen === "yes") &&
-      (!rules.residencyRequired || isResident === "yes")
-    ) {
+    
+    if (checkUserEligibility(ageNum, isCitizen, isResident, rules)) {
       setResult("eligible");
     } else {
       setResult("ineligible");

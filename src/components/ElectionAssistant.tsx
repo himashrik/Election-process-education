@@ -48,9 +48,10 @@ export function ElectionAssistant() {
           >
             <Button
               onClick={() => setIsOpen(true)}
+              aria-label="Open Election Assistant"
               className="h-14 w-14 rounded-full shadow-xl bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center p-0"
             >
-              <MessageSquare className="h-6 w-6" />
+              <MessageSquare className="h-6 w-6" aria-hidden="true" />
             </Button>
           </motion.div>
         )}
@@ -80,9 +81,10 @@ export function ElectionAssistant() {
                   variant="ghost" 
                   size="icon" 
                   onClick={() => setIsOpen(false)}
+                  aria-label="Close Election Assistant"
                   className="text-white hover:bg-white/20 hover:text-white rounded-full h-8 w-8"
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-4 w-4" aria-hidden="true" />
                 </Button>
               </CardHeader>
               
