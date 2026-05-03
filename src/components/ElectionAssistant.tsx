@@ -8,33 +8,25 @@ import { Bot, User, Send, X, MessageSquare, Loader2 } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
+import { useAppContext } from '@/context/AppContext';
 
 export function ElectionAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const [input, setInput] = useState("");
-  const { messages, sendMessage, status } = useChat({
-    messages: [
+  const { country, level } = useAppContext();
+  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+    body: {
+      country,
+      level,
+    },
+    initialMessages: [
       {
         id: '1',
         role: 'assistant',
-        parts: [{ type: 'text', text: 'Hi! I am the ElectionEd Assistant. I can explain the election process, voting steps, EVMs, eligibility, and more in simple terms. How can I help you understand elections today?' }],
-      } as UIMessage,
+        content: `Hi! I am your ElectionEd Assistant. I can explain the election process in ${country.toUpperCase()} at a ${level} level. How can I help you today?`,
+      },
     ],
   });
-
-  const isLoading = status === 'submitted' || status === 'streaming';
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-    sendMessage({ text: input });
-    setInput("");
-  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -115,7 +107,7 @@ export function ElectionAssistant() {
                           prose-strong:font-semibold"
                         >
                           <ReactMarkdown>
-                            {m.parts?.filter(p => p.type === 'text').map(p => (p as any).text).join('\n')}
+                            {m.content}
                           </ReactMarkdown>
                         </div>
                       </div>

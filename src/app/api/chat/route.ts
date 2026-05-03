@@ -35,11 +35,13 @@ Make responses interactive by:
 - Asking simple follow-ups like: "Do you want to know eligibility?" or "Shall I explain EVM?"`;
 
 export async function POST(req: Request) {
-  const { messages } = await req.json();
+  const { messages, country, level } = await req.json();
+
+  const contextualPrompt = `${systemPrompt}\n\nCURRENT CONTEXT:\n- Country: ${country?.toUpperCase() || 'India'}\n- Explainer Level: ${level || 'standard'}\n\nPlease tailor your response specifically to ${country?.toUpperCase() || 'India'} and ensure the complexity matches the ${level || 'standard'} level.`;
 
   const result = streamText({
-    model: google('gemini-2.5-pro'),
-    system: systemPrompt,
+    model: google('gemini-1.5-pro'),
+    system: contextualPrompt,
     messages,
   });
 

@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { FloatingBeads } from "@/components/FloatingBeads";
+import { ElectionAssistant } from "@/components/ElectionAssistant";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
             <TooltipProvider>
               <FloatingBeads />
               {children}
+              <ElectionAssistant />
             </TooltipProvider>
           </AppProvider>
         </ThemeProvider>
