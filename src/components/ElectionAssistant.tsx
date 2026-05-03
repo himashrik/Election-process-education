@@ -10,6 +10,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import { useAppContext } from '@/context/AppContext';
 
+/**
+ * ElectionAssistant Component
+ * 
+ * Provides an interactive, Gemini-powered chat interface that adapts to the 
+ * current user context (country and explainer level).
+ * 
+ * Features:
+ * - Real-time streaming AI responses
+ * - Contextual awareness of app state
+ * - Accessible UI with ARIA support
+ */
 export function ElectionAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);

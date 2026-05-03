@@ -15,6 +15,14 @@ interface Props {
   rules: EligibilityRules;
 }
 
+/**
+ * EligibilityForm Component
+ * 
+ * Allows users to verify their voting eligibility based on regional rules.
+ * Uses a modular library for validation logic to ensure high testability.
+ * 
+ * @param rules - The regional eligibility rules from the dataset
+ */
 export function EligibilityForm({ rules }: Props) {
   const [age, setAge] = useState<string>("");
   const [isCitizen, setIsCitizen] = useState<string | null>(null);

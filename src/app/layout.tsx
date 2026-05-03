@@ -6,7 +6,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { FloatingBeads } from "@/components/FloatingBeads";
-import { ElectionAssistant } from "@/components/ElectionAssistant";
+import dynamic from 'next/dynamic';
+
+const ElectionAssistant = dynamic(() => import("@/components/ElectionAssistant").then(mod => mod.ElectionAssistant), {
+  ssr: false,
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
