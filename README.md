@@ -15,7 +15,47 @@ Our approach is centered on making civic education **interactive**, **personaliz
 
 ## How the Solution Works
 - **Frontend**: Built with Next.js (App Router), React, and Tailwind CSS. The UI is designed to be highly responsive and engaging, utilizing Framer Motion for smooth animations and micro-interactions.
-- **State Management**: Uses React Context and LocalStorage to track user progress through quizzes and reading materials.
+- **State Management**: Uses React Context to track user progress through quizzes and reading materials.
+
+## Application Architecture
+
+```mermaid
+graph TD
+    User([User]) <--> Frontend[Next.js Web App]
+    Frontend <--> Context[React Context State]
+    Frontend <--> GeminiAPI[Google Gemini API / AI SDK]
+    Frontend --> StaticData[Election Data JSONs]
+    
+    subgraph "Logic Layers"
+        Context --> QuizLogic[Quiz & Progress Logic]
+        Context --> RoadmapLogic[Interactive Roadmap]
+    end
+    
+    subgraph "External Services"
+        GeminiAPI <--> GeminiPro[Gemini 1.5 Pro Model]
+    end
+```
+
+## User Flow
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant F as Frontend
+    participant AI as Gemini AI Assistant
+    participant Q as Quiz System
+
+    U->>F: Select Country (US/India)
+    F->>F: Load Country Specific Data
+    U->>F: Explore Election Roadmap
+    U->>AI: Ask for clarification on a term
+    AI-->>U: Provide simple explanation
+    U->>Q: Take Phase Quiz
+    Q-->>U: Real-time feedback & Score
+    Note over Q,U: Score resets on page refresh
+    U->>F: Track overall progress
+```
+
 - **AI Integration**: The backend uses Next.js Route Handlers coupled with the `@ai-sdk/google` to securely communicate with the Gemini 2.5 Pro model. The AI acts as a dedicated ElectionEd Assistant, streaming clear, step-by-step explanations directly to the user's interface.
 - **Dynamic Content**: Static data for country-specific processes is managed via structured JSON files, making the platform easily extensible.
 
