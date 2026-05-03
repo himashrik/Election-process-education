@@ -21,23 +21,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [level, setLevel] = useState<ExplainerLevel>('standard');
   const [completedQuizzes, setCompletedQuizzes] = useState<Record<string, boolean>>({});
 
-  useEffect(() => {
-    const savedQuizzes = localStorage.getItem('electionEd_quizzes');
-    if (savedQuizzes) {
-      try {
-        setCompletedQuizzes(JSON.parse(savedQuizzes));
-      } catch (e) {
-        console.error("Failed to parse saved quizzes", e);
-      }
-    }
-  }, []);
-
   const markQuizCompleted = (countryId: string, phaseId: string) => {
     const key = `${countryId}-${phaseId}`;
     setCompletedQuizzes(prev => {
-      const updated = { ...prev, [key]: true };
-      localStorage.setItem('electionEd_quizzes', JSON.stringify(updated));
-      return updated;
+      return { ...prev, [key]: true };
     });
   };
 
@@ -46,7 +33,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setCompletedQuizzes(prev => {
       const updated = { ...prev };
       delete updated[key];
-      localStorage.setItem('electionEd_quizzes', JSON.stringify(updated));
       return updated;
     });
   };
