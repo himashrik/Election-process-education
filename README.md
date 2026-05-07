@@ -1,8 +1,19 @@
 # 🗳️ ElectionEd - Interactive Civic Education Platform
 
 > **Demystifying the democratic process through interactive storytelling and AI-powered personalization.**
->
-> 🌐 **Live Demo:** [https://election-ed-913686647554.us-central1.run.app/](https://election-ed-913686647554.us-central1.run.app/)
+
+---
+
+### 🏆 Project Performance & Quality
+| Metric | Result |
+| :--- | :--- |
+| **AI Analysis Score** | **88.31%** |
+| **Global Rank** | **#942 / 17,434+** (Top 6%) |
+| **Accessibility Score** | **95+ (Lighthouse Optimized)** |
+
+---
+
+🌐 **Live Demo:** [https://election-ed-913686647554.us-central1.run.app/](https://election-ed-913686647554.us-central1.run.app/)
 
 ---
 
